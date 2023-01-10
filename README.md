@@ -2,6 +2,10 @@
 
 This is a solution to Scrimba's solo project. [View Project](https://www.figma.com/file/NEj9JDycMjF3XKXq7swoc9/Random-Password-Generator-(New-version)?node-id=0%3A1&t=26hJo0qzYpkZWv5k-0)
 
+## Links
+
+- [GitHub](https://github.com/mallory-cvlh/password-generator)
+- [Live](https://mallory-cvlh.github.io/password-generator/)
 
 ## My process
 
