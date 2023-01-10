@@ -25,7 +25,6 @@ Users are able to:
 - Generate a password of 15 characters: [a-z][A-Z] (default)
 - Customise the password length
 - Adding numeric characters
-- Add special characters
 - Adding special characters
 - Switching between dark and light mode
 
