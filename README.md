@@ -27,7 +27,7 @@ Users are able to:
 - Adding numeric characters
 - Adding special characters
 - Switching between dark and light mode
-- Copy on click the password
+- Click to copy the password
 
 ### Useful resources
 
