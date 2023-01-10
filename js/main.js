@@ -10,14 +10,12 @@ let passwordLength = 0
 
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 const specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"]
-const numbersSpecials = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"]
 
-function generatePassword() {
+btnGenerate.addEventListener('click', () => {
     let firstRandomPwd = ""
     let secondRandomPwd = ""
     let characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     errorMessage.textContent = ""
-
 
     // Check choiceLength
     if (choiceLength.value === '') {
@@ -31,8 +29,11 @@ function generatePassword() {
 
     // Characters based on the users preference
     if (choiceNumber.checked && choiceSpecial.checked) {
-        for (let i = 0; i < numbersSpecials.length; i++) {
-            characters.push(numbersSpecials[i])
+        for (let i = 0; i < numbers.length; i++) {
+            characters.push(numbers[i])
+        }
+        for (let i = 0; i < specials.length; i++) {
+            characters.push(specials[i])
         }
     } else if (choiceSpecial.checked) {
         for (let i = 0; i < specials.length; i++) {
@@ -49,9 +50,10 @@ function generatePassword() {
         firstRandomPwd += characters[Math.floor(Math.random() * (characters.length))]
         secondRandomPwd += characters[Math.floor(Math.random() * (characters.length))]
     }
+
     firstPassword.textContent = firstRandomPwd
     secondPassword.textContent = secondRandomPwd
-}
+})
 
 // ================= //
 // Toggle light mode //
@@ -84,11 +86,9 @@ document.querySelector(".theme-icon").addEventListener("click", () => {
 // ============= //
 // COPY ON CLICK //
 // ============= //
-function copy(that) {
-    var inp = document.createElement('input');
-    document.body.appendChild(inp)
-    inp.value = that.textContent
-    inp.select();
-    document.execCommand('copy', false);
-    inp.remove();
-}
+firstPassword.addEventListener('click', () => {
+    navigator.clipboard.writeText(firstPassword.innerText)
+})
+secondPassword.addEventListener('click', () => {
+    navigator.clipboard.writeText(secondPassword.innerText)
+})

@@ -15,7 +15,7 @@
     <!-- TITLE + CSS + JS -->
     <title>Password Generator</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" async></script>
+    <script async defer src="js/main.js"></script>
 </head>
 
 <body>
@@ -23,58 +23,47 @@
         <h1>Password Generator</h1>
     </header>
 
-    <main>
-        <article class="generator">
-            <button type="button" class="theme-icon">
-                <i aria-hidden="true" class="fas fa-moon" title="Toggle between dark and light mode"></i>
-                <i aria-hidden="true" class="fas fa-sun" title="Toggle between dark and light mode"></i>
-                <span class="sr-only">Toggle between dark and light mode</span>
-            </button>
+    <main class="generator">
+        <button type="button" class="theme-icon">
+            <span aria-hidden="true" class="fas fa-moon" title="Toggle between dark and light mode"></span>
+            <span aria-hidden="true" class="fas fa-sun" title="Toggle between dark and light mode"></span>
+            <p class="sr-only">Toggle between dark and light mode</p>
+        </button>
 
-            <h2 class="generator__title">Generate a <span class="green-heading">random password</span></h2>
-            <p class="generator__text">Never use an insecure password again.</p>
+        <h2 class="generator__title">Generate a <span class="green-heading">random password</span></h2>
+        <p class="generator__text">Never use an insecure password again.</p>
 
-            <section class="generator__btn">
-                <button id="btn-generate" class="generator__btn-generate" onclick="generatePassword()"
-                    type="button">Generate
-                    passwords</button>
+        <button id="btn-generate" class="generator__btn-generate" type="button">Generate
+            passwords</button>
+        <p class="generator__text">Customise your password:</p>
+        <form action="/" method="post">
+            <label> Length:
+                <input class="input-number" id="length" type="number" name="length" min="5" max="18">
+            </label>
+            <p id="error-message" class="error-message"></p>
 
-                <p class="generator__text">Customise your password:</p>
+            <label class="label-checkbox">
+                <input class="input-checkbox" id="number" type="checkbox" name="number">
+                Numbers
+            </label>
+            <label class="label-checkbox">
+                <input class="input-checkbox" id="special-character" type="checkbox" name="special-character">
+                Special characters
+            </label>
+        </form>
 
-                <form action="/" method="post">
-                    <label> Length:
-                        <input class="input-number" id="length" type="number" name="length" min="5" max="18">
-                    </label>
-                    <p id="error-message" class="error-message"></p>
-
-                    <div class="flex-group">
-                        <label class="label-checkbox">
-                            <input class="input-checkbox" id="number" type="checkbox" name="number">
-                            Numbers
-                        </label>
-
-                        <label class="label-checkbox">
-                            <input class="input-checkbox" id="special-character" type="checkbox"
-                                name="special-character">
-                            Special characters
-                        </label>
-                    </div>
-                </form>
-            </section>
-
-            <section class="generator__pwd-group">
-                <button class="generator__pwd" id="first-password" onclick="copy(this)"></button>
-                <button class="generator__pwd" id="second-password" onclick="copy(this)"></button>
-            </section>
-
-        </article>
+        <div class="flex-group">
+            <button class="generator__pwd" id="first-password"></button>
+            <button class="generator__pwd" id="second-password"></button>
+        </div>
     </main>
 
     <footer class="footer">
-        <p>
-            <a class="footer__link" href="https://github.com/mallory-cvlh">mallory-cvlh</a>
-        </p>
+        <a class="footer__link" href="https://github.com/mallory-cvlh">mallory-cvlh</a>
     </footer>
+
+    <!-- onclick="copy(this)"
+onclick="copy(this)" -->
 </body>
 
 </html>

@@ -76,7 +76,7 @@ body {
     place-content: center;
 }
 
-button:hover {
+button:is(:hover,:focus) {
     box-shadow: 0 0 6px -1px var(--clr-border);
     cursor: pointer;
 }
@@ -234,6 +234,7 @@ label {
 
     .flex-group {
         display: flex;
-        gap: 3rem;
+        gap: 1rem;
+        justify-content: space-between
     }
 }
