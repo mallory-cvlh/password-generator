@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="mallory-cvlh">
+    <meta name="description" content="Password Generator Scrimba Solo Project">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/5f1b63acae.js" crossorigin="anonymous"></script>
+    <!-- TITLE + CSS + JS -->
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" async></script>
+</head>
+
+<body>
+    <header class="sr-only">
+        <h1>Password Generator</h1>
+    </header>
+
+    <main>
+        <article class="generator">
+            <button type="button" class="theme-icon">
+                <i aria-hidden="true" class="fas fa-moon" title="Toggle between dark and light mode"></i>
+                <i aria-hidden="true" class="fas fa-sun" title="Toggle between dark and light mode"></i>
+                <span class="sr-only">Toggle between dark and light mode</span>
+            </button>
+
+            <h2 class="generator__title">Generate a <span class="green-heading">random password</span></h2>
+            <p class="generator__text">Never use an insecure password again.</p>
+
+            <section class="generator__btn">
+                <button id="btn-generate" class="generator__btn-generate" onclick="generatePassword()"
+                    type="button">Generate
+                    passwords</button>
+
+                <p class="generator__text">Customise your password:</p>
+
+                <form action="/" method="post">
+                    <label> Length:
+                        <input class="input-number" id="length" type="number" name="length" min="5" max="18">
+                    </label>
+                    <p id="error-message" class="error-message"></p>
+
+                    <div class="flex-group">
+                        <label class="label-checkbox">
+                            <input class="input-checkbox" id="number" type="checkbox" name="number">
+                            Numbers
+                        </label>
+
+                        <label class="label-checkbox">
+                            <input class="input-checkbox" id="special-character" type="checkbox"
+                                name="special-character">
+                            Special characters
+                        </label>
+                    </div>
+                </form>
+            </section>
+
+            <section class="generator__pwd-group">
+                <button class="generator__pwd" id="first-password" onclick="copy(this)"></button>
+                <button class="generator__pwd" id="second-password" onclick="copy(this)"></button>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <a class="footer__link" href="https://github.com/mallory-cvlh">mallory-cvlh</a>
+        </p>
+    </footer>
+</body>
+
+</html>
