@@ -102,7 +102,7 @@ button:hover {
     align-items: center;
     background-color: var(--bg-body);
     border-color: rgba(226, 232, 240, 0);
-    border-radius: 0.5rem;
+    border-radius: .5rem;
     border-style: solid;
     border-width: 1px;
     box-shadow: var(--box-shadow-toggle);
@@ -148,6 +148,7 @@ button:hover {
 
 .generator__title {
     color: var(--clr-heading);
+    font-size: clamp(1.50rem, calc(1.37rem + .65vw), 1.95rem);
     font-weight: 700;
     line-height: 1;
     margin: 1rem 0 0;
