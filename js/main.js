@@ -1,16 +1,22 @@
-// Variables
-let firstPassword = document.getElementById('first-password')
-let secondPassword = document.getElementById('second-password')
-let choiceLength = document.getElementById('length')
-let choiceNumber = document.getElementById('number');
-let choiceSpecial = document.getElementById('special-character');
-let errorMessage = document.querySelector('.error-message')
-let btnGenerate = document.querySelector('.generator__btn')
-let passwordLength = 0
-
+// ========= //
+// VARIABLES //
+// ========= //
+const btnCopyFirstPwd = document.getElementById('btn-copy-first-pwd')
+const btnCopySecondPwd = document.getElementById('btn-copy-second-pwd')
+const firstPassword = document.getElementById('first-password')
+const secondPassword = document.getElementById('second-password')
+const choiceLength = document.getElementById('length')
+const choiceNumber = document.getElementById('number');
+const choiceSpecial = document.getElementById('special-character');
+const btnGenerate = document.querySelector('.generator__btn')
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 const specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"]
+let errorMessage = document.querySelector('.error-message')
+let passwordLength = 0
 
+// ================== //
+// PASSWORD GENERATOR //
+// ================== //
 btnGenerate.addEventListener('click', () => {
     let firstRandomPwd = ''
     let secondRandomPwd = ''
@@ -29,20 +35,11 @@ btnGenerate.addEventListener('click', () => {
 
     // Characters based on the users preference
     if (choiceNumber.checked && choiceSpecial.checked) {
-        for (let i = 0; i < numbers.length; i++) {
-            characters.push(numbers[i])
-        }
-        for (let i = 0; i < specials.length; i++) {
-            characters.push(specials[i])
-        }
+        characters = [...characters, ...numbers, ...specials]
     } else if (choiceSpecial.checked) {
-        for (let i = 0; i < specials.length; i++) {
-            characters.push(specials[i])
-        }
+        characters = [...characters, ...specials]
     } else if (choiceNumber.checked) {
-        for (let i = 0; i < numbers.length; i++) {
-            characters.push(numbers[i])
-        }
+        characters = [...characters, ...numbers]
     }
 
     // Password generator
@@ -53,6 +50,16 @@ btnGenerate.addEventListener('click', () => {
 
     firstPassword.textContent = firstRandomPwd
     secondPassword.textContent = secondRandomPwd
+})
+
+// ============= //
+// COPY ON CLICK //
+// ============= //
+btnCopyFirstPwd.addEventListener('click', () => {
+    navigator.clipboard.writeText(firstPassword.innerText)
+})
+btnCopySecondPwd.addEventListener('click', () => {
+    navigator.clipboard.writeText(secondPassword.innerText)
 })
 
 // ================= //
@@ -83,15 +90,3 @@ document.querySelector('.theme-icon').addEventListener('click', () => {
     toggleRootClass();
 });
 
-// ============= //
-// COPY ON CLICK //
-// ============= //
-const btnCopyFirstPwd = document.getElementById('btn-copy-first-pwd')
-const btnCopySecondPwd = document.getElementById('btn-copy-second-pwd')
-
-btnCopyFirstPwd.addEventListener('click', () => {
-    navigator.clipboard.writeText(firstPassword.innerText)
-})
-btnCopySecondPwd.addEventListener('click', () => {
-    navigator.clipboard.writeText(secondPassword.innerText)
-})
